@@ -15,10 +15,15 @@ Based on the assumption that only mangroves can tolerate intertidal areas, my me
 
 -------------
 ## Land Cover Classification
-Geeting accurate landcover class for the study area is crucial for this analysis, so I developped a code for landcover classification, which uses Landsat 5, elevation subset, Otsu segmentation, and random forest to produce binary class at each step.
+Getting accurate landcover class for the study area is crucial for this analysis, so I developped a code for landcover classification, which uses Landsat 5, elevation subset, Otsu segmentation, and random forest to produce binary class at each step.
 
-<img align="left" width="474" height="294" src="https://github.com/rajaoberison/LandcoverPrediction/blob/master/images/flow_chart.png">
+<img align="left" width="400" height="210" src="https://github.com/rajaoberison/LandcoverPrediction/blob/master/images/flow_chart.png">
 
 This land cover classification allowd me to produce a transition matrix of with probabilities of the conversion of each pixels from one state to another. This information is not enaough however, for the predictin analysis, because factors such as storm frequency, anthropogenic pressures, and upstream forest cover are not yet take into account.
 
-## Calculation of 
+<br>
+<br>
+
+## Calculation of Posterior Probabilities
+
+
