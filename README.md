@@ -22,9 +22,40 @@ Getting accurate landcover class for the study area is crucial for this analysis
 This land cover classification allowd me to produce a transition matrix of with probabilities of the conversion of each pixels from one state to another. This information is not enaough however, for the prediction analysis, because factors such as storm frequency, anthropogenic pressures, and upstream forest cover are not yet take into account. I will try to calculate this proability using Baysian inference.
 
 <br>
+<br>
 
 ---------------------
-> But first let's simulate a simple random walk using the classes and the transition matrix obtained from the classification, 
+
+    But first let's simulate a simple random walk using the classes and the transition matrix obtained from the 
+    classification. By choosing a study region in Belo-sur-Tsiribihina, Madagascar, and a timeframe of 2000 to 
+    2010 (with a two-year intervall), the classification determined that the current state is: 
+    
+    In short, the script looks like this:
+    
+```javascript
+// DEFINING FUNCTIONS
+// OTSU FUNCTION
+// https://medium.com/google-earth/otsus-method-for-image-segmentation-f5c48f405e
+var otsu = function(histogram) {…};
+
+
+// RANDOM FOREST CLASSIFIER GIVEN TRAINING REGIONS
+var RFclassifier = function(image, training0, training1, trainingbands){…};
+
+
+// LANDSAT 5 IMAGE CLASSIFIER
+var l5classifier = function(year, aoi, training_region){…};
+
+
+// LAND COVER CLASSIFICATION GIVEN THE REGION OF STUDY
+// From 2000 to 2008 with a two-year intervall
+var cover_2000 = l5classifier(2000, belo, training);
+var cover_2002 = l5classifier(2002, belo, training);
+var cover_2004 = l5classifier(2004, belo, training);
+var cover_2006 = l5classifier(2006, belo, training);
+var cover_2008 = l5classifier(2008, belo, training);
+```
+
 
 
 
