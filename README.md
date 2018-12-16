@@ -25,7 +25,7 @@ This land cover classification allowd me to produce a transition matrix of with 
 <br>
 
 ---------------------
-## Example simulation
+## Examples simulation
 
     But first let's simulate a simple random walk using the classes and the transition matrix obtained from the 
     classification. By choosing a study region in Belo-sur-Tsiribihina, Madagascar, and a timeframe of 2000 to 
