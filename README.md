@@ -58,7 +58,9 @@ var cover_2008 = l5classifier(2008, belo, training);
 
 Typical outputs
 
-<img align="right" width="474" height="294" src="https://github.com/rajaoberison/LandcoverPrediction/blob/master/images/alltheway.gif">
+
+<img align="left" width="332" height="480" src="https://github.com/rajaoberison/LandcoverPrediction/blob/master/images/alltheway.gif">
+
 
 ## Calculation of Posterior Probabilities
 
