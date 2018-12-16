@@ -25,6 +25,7 @@ This land cover classification allowd me to produce a transition matrix of with 
 <br>
 
 ---------------------
+## Example simulation
 
     But first let's simulate a simple random walk using the classes and the transition matrix obtained from the 
     classification. By choosing a study region in Belo-sur-Tsiribihina, Madagascar, and a timeframe of 2000 to 
@@ -48,22 +49,22 @@ var scale = 30; // meters
 /** DEFINING FUNCTIONS **/
 /*** OTSU FUNCTION ***/
 // https://medium.com/google-earth/otsus-method-for-image-segmentation-f5c48f405e
-var otsu = function(histogram) {<==> };
+var otsu = function(histogram) {<==>};
 
  
 /*** RANDOM FOREST CLASSIFIER GIVEN TRAINING REGIONS ***/
-var RFclassifier = function(image, training0, training1, trainingbands, scale){ <==> };
+var RFclassifier = function(image, training0, training1, trainingbands, scale){<==>};
 
 
 /*** LANDSAT 5 IMAGE CLASSIFIER ***/
-var l5classifier = function(year, aoi, training_region, scale){ <==> };
+var l5classifier = function(year, aoi, training_region, scale){<==>};
 
 
 /*** TRANSITION MATRIX CALCULATOR ***/
-var transition_matrix = function(before_image, current_image, year, aoi, scale){ <==> };
+var transition_matrix = function(before_image, current_image, year, aoi, scale){<==>};
 
 
-/*** RANDOM WALK FUNCTION ***/ <==>
+/*** RANDOM WALK FUNCTION ***/
 // This requires a transition matrix which is calculated above.
 // For each of the pixels, the current state is given by the rows of the average matrix
 // Then, the next state of the land cover is given by the result of product of 
@@ -71,25 +72,25 @@ var transition_matrix = function(before_image, current_image, year, aoi, scale){
 // As the current state is a 1D array (vector), the product will occur for each column
 // of the average matrix, whcih means, we have to get it's transposed version
 // Here's the function for all of that
-var random_walk = function(current_cover, bandNameOfClasses, average_matrix){ <==> };
+var random_walk = function(current_cover, bandNameOfClasses, average_matrix){<==>};
 
 
 
 /** MAIN CODE **/
-/*** LAND COVER CLASSIFICATION GIVEN THE REGION OF STUDY ***/ <==>
+/*** LAND COVER CLASSIFICATION GIVEN THE REGION OF STUDY ***/<==>
 
-/*** COMPUTING TRANSITION MATRIX ***/ <==>
+/*** COMPUTING TRANSITION MATRIX ***/<==>
 
 
 /*** RANDOM WALKING ***/ <==>
 // First we need the average of the transition matrices
-/**** AVERAGE TRANSITION MATRIX ****/ <==>
+/**** AVERAGE TRANSITION MATRIX ****/<==>
 
-/**** SIMULATION FROM 2008 to 2010 ****/ <==>
+/**** SIMULATION FROM 2008 to 2010 ****/<==>
 
 
 
-/** PRESENTATION **/ <==>
+/** PRESENTATION **/<==>
 ```
     Here are some typical outputs:
 
