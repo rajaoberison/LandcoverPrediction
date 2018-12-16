@@ -28,7 +28,8 @@ This land cover classification allowd me to produce a transition matrix of with 
 
     But first let's simulate a simple random walk using the classes and the transition matrix obtained from the 
     classification. By choosing a study region in Belo-sur-Tsiribihina, Madagascar, and a timeframe of 2000 to 
-    2010 (with a two-year intervall), the classification determined that the current state is: 
+    2010 (with a two-year intervall), I obtained the following outputs. For this example, water was not yet 
+    included but just the land covers.
     
     In short, the script looks like this:
     
@@ -55,7 +56,7 @@ var cover_2004 = l5classifier(2004, belo, training);
 var cover_2006 = l5classifier(2006, belo, training);
 var cover_2008 = l5classifier(2008, belo, training);
 ```
-    Here are some typical outputs
+    Here are some typical outputs:
 
 --------------------
 <img align="left" width="31%" src="https://github.com/rajaoberison/LandcoverPrediction/blob/master/images/actual.gif">
@@ -64,7 +65,26 @@ var cover_2008 = l5classifier(2008, belo, training);
 
 <br>
 
+---------------------------
+
+    As we can see, what the script does is: it will assign for all landcovers of type "a" to some new land 
+    cover of type "b". So it will convert everything, all mangroves to some land cover, all terrestrial forests
+    to some land cover, and so on. While visually, it produces results a little off from the actual land cover,
+    the scrpits still provide insights into when where the mangroves vulnerables within the timeframe of study.
+    
+    If you look closely at the far-right simulation, mangroves are completely lost at the early 2000 but then 
+    come back aroun 2010, I think this is because of the rate of mangrove loss higher in the early 2000 and slower
+    around 2010. Obviously, a way to correct this sript is to incorporate some spatial information in the
+    calculation of the probabilities, such as proximity of the land cover to population centers, proximity to 
+    coastline, frequency of storms, and upstream land cover (all of which may affect mangrove change).
+    The next step of this script will try to incorporate these information.
+    
+
 ---------------------
 ## Calculation of Posterior Probabilities
+For the next steps, the updating of the landcover class (the random walk) will go by pixels and not by land cover type.
+This is something, I still find challenging to implement on Earth Engine as I haven't mastered some of its capabilities yet.
 
+Please contact me if you're interested in collaborating on this project.
 
+The full script can be found here: 
