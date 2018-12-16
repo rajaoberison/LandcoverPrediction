@@ -3,7 +3,7 @@
 This is still a work in progress. I stated working on this as part of the Geospatial Software Design class at Yale FES.
 
 ## Introduction
-In this project, I'm trying to predict landcover change using simple random walk within pixels. The software used was Earth Engine, and one of the main challenge was to incorporate pixel location information in the script. (And I'm still working on that part actually). This script example is specifically designed for mangrove cover change.
+In this project, I'm trying to predict landcover change using simple random walk within landcover pixels. The software used was Earth Engine, and one of the main challenge was to incorporate pixel location information in the script. (And I'm still working on that part actually). This script example is specifically designed for mangrove cover change.
 
 Mangroves are trees and shrubs that inhabit the interface between land and sea of the tropics and subtropics. Their natural distribution is limited, globally, by temperature (20°C winter isotherm of seawater), and, regionally and locally, by rainfall, tidal inundation, and freshwater inflow bringing nutrients and silt ([Kathiresan and Bingham, 2001](https://www.sciencedirect.com/science/article/pii/S0065288101400034); [Alongi and Brinkman, 2011](https://link.springer.com/chapter/10.1007/978-94-007-1363-5_10)). Additionally, mangroves are abundant in zones of small topographical gradients, well-drained soils, and large tidal amplitudes; but they do poorly in stagnant water ([Gopal and Krishnamurthy, 1993](https://link.springer.com/chapter/10.1007/978-94-015-8212-4_10); [Van Loon et al., 2016](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0150302)).
 
@@ -17,12 +17,16 @@ Based on the assumption that only mangroves can tolerate intertidal areas, my me
 ## Land Cover Classification
 Getting accurate landcover class for the study area is crucial for this analysis, so I developped a code for landcover classification, which uses Landsat 5, elevation subset, Otsu segmentation, and random forest to produce binary class at each step.
 
-<img align="left" width="400" height="210" src="https://github.com/rajaoberison/LandcoverPrediction/blob/master/images/flow_chart.png">
+<img align="left" width="501" height="262" src="https://github.com/rajaoberison/LandcoverPrediction/blob/master/images/flow_chart.png">
 
-This land cover classification allowd me to produce a transition matrix of with probabilities of the conversion of each pixels from one state to another. This information is not enaough however, for the predictin analysis, because factors such as storm frequency, anthropogenic pressures, and upstream forest cover are not yet take into account.
+This land cover classification allowd me to produce a transition matrix of with probabilities of the conversion of each pixels from one state to another. This information is not enaough however, for the prediction analysis, because factors such as storm frequency, anthropogenic pressures, and upstream forest cover are not yet take into account. I will try to calculate this proability using Baysian inference.
 
 <br>
-<br>
+
+---------------------
+> But first let's simulate a simple random walk using the classes and the transition matrix obtained from the classification, 
+
+
 
 ## Calculation of Posterior Probabilities
 
