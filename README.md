@@ -67,16 +67,18 @@ var cover_2008 = l5classifier(2008, belo, training);
 
 ---------------------------
 
-    As we can see, what the script does is: it will assign for all landcovers of type "a" to some new land 
-    cover of type "b". So it will convert everything, all mangroves to some land cover, all terrestrial forests
-    to some land cover, and so on. While visually, it produces results a little off from the actual land cover,
-    the scrpits still provide insights into when where the mangroves vulnerables within the timeframe of study.
+    As we can see, what the script does is: it will assign for all landcovers of type "a" to some new  
+    land cover of type "b". So it will convert everything, all mangroves to some land cover, all 
+    terrestrial forests to some land cover, and so on. While visually, it produces results a little off
+    from the actual land cover, the scrpits still provide insights into when where the mangroves
+    vulnerables within the timeframe of study.
     
-    If you look closely at the far-right simulation, mangroves are completely lost at the early 2000 but then 
-    come back aroun 2010, I think this is because of the rate of mangrove loss higher in the early 2000 and slower
-    around 2010. Obviously, a way to correct this sript is to incorporate some spatial information in the
-    calculation of the probabilities, such as proximity of the land cover to population centers, proximity to 
-    coastline, frequency of storms, and upstream land cover (all of which may affect mangrove change).
+    If you look closely at the far-right simulation, mangroves are completely lost at the early 2000 
+    but then come back around 2010, I think this is because of the rate of mangrove loss higher 
+    in the early 2000 and slower around 2010. Obviously, a way to correct this sript is to 
+    incorporate some spatial information in the calculation of the probabilities, such as proximity  
+    of the land cover to population centers, proximity to coastline, frequency of storms, and 
+    upstream land cover (all of which may affect mangrove change).
     The next step of this script will try to incorporate these information.
     
 
@@ -87,4 +89,4 @@ This is something, I still find challenging to implement on Earth Engine as I ha
 
 Please contact me if you're interested in collaborating on this project.
 
-The full script can be found here: 
+The full script can be found here: https://github.com/rajaoberison/LandcoverPrediction/blob/master/RandomWalkOnLandCover.js
