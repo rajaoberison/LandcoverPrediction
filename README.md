@@ -34,27 +34,62 @@ This land cover classification allowd me to produce a transition matrix of with 
     In short, the script looks like this:
     
 ```javascript
-// DEFINING FUNCTIONS
-// OTSU FUNCTION
+// Attempted Land Cover Change Prediction by Andry Rajaoberison
+// NB: This code is to provide insights on how to do prediction analysis or randow-walk
+// using Google Earth Engine. No accuracy assessment were conducted and the training
+// for classification were based on obsevation of high resolution Google Earth Imagery.
+
+
+// SCALE OF THE STUDY
+var scale = 30; // meters
+
+
+
+/** DEFINING FUNCTIONS **/
+/*** OTSU FUNCTION ***/
 // https://medium.com/google-earth/otsus-method-for-image-segmentation-f5c48f405e
-var otsu = function(histogram) {…};
+var otsu = function(histogram) {<==> };
+
+ 
+/*** RANDOM FOREST CLASSIFIER GIVEN TRAINING REGIONS ***/
+var RFclassifier = function(image, training0, training1, trainingbands, scale){ <==> };
 
 
-// RANDOM FOREST CLASSIFIER GIVEN TRAINING REGIONS
-var RFclassifier = function(image, training0, training1, trainingbands){…};
+/*** LANDSAT 5 IMAGE CLASSIFIER ***/
+var l5classifier = function(year, aoi, training_region, scale){ <==> };
 
 
-// LANDSAT 5 IMAGE CLASSIFIER
-var l5classifier = function(year, aoi, training_region){…};
+/*** TRANSITION MATRIX CALCULATOR ***/
+var transition_matrix = function(before_image, current_image, year, aoi, scale){ <==> };
 
 
-// LAND COVER CLASSIFICATION GIVEN THE REGION OF STUDY
-// From 2000 to 2008 with a two-year intervall
-var cover_2000 = l5classifier(2000, belo, training);
-var cover_2002 = l5classifier(2002, belo, training);
-var cover_2004 = l5classifier(2004, belo, training);
-var cover_2006 = l5classifier(2006, belo, training);
-var cover_2008 = l5classifier(2008, belo, training);
+/*** RANDOM WALK FUNCTION ***/ <==>
+// This requires a transition matrix which is calculated above.
+// For each of the pixels, the current state is given by the rows of the average matrix
+// Then, the next state of the land cover is given by the result of product of 
+// current state * average transition matrix (within the timeframe)
+// As the current state is a 1D array (vector), the product will occur for each column
+// of the average matrix, whcih means, we have to get it's transposed version
+// Here's the function for all of that
+var random_walk = function(current_cover, bandNameOfClasses, average_matrix){ <==> };
+
+
+
+/** MAIN CODE **/
+/*** LAND COVER CLASSIFICATION GIVEN THE REGION OF STUDY ***/ <==>
+
+/*** COMPUTING TRANSITION MATRIX ***/ <==>
+
+
+/*** RANDOM WALKING ***/ <==>
+// First we need the average of the transition matrices
+/**** AVERAGE TRANSITION MATRIX ****/ <==>
+
+/**** SIMULATION FROM 2008 to 2010 ****/ <==>
+
+
+
+/** PRESENTATION **/ <==>
 ```
     Here are some typical outputs:
 
