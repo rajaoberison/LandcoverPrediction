@@ -57,7 +57,6 @@ var cover_2008 = l5classifier(2008, belo, training);
 ```
 
 Typical outputs
-![Based on 2002 cover](https://gph.is/2QB5IeY)
 
 
 ## Calculation of Posterior Probabilities
