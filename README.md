@@ -56,7 +56,7 @@ var cover_2006 = l5classifier(2006, belo, training);
 var cover_2008 = l5classifier(2008, belo, training);
 ```
 
-
+    
 
 
 ## Calculation of Posterior Probabilities
