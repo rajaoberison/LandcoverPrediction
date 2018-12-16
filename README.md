@@ -11,9 +11,14 @@ Mangroves are trees and shrubs that inhabit the interface between land and sea o
 
 Based on the assumption that only mangroves can tolerate intertidal areas, my method will assume that there are 6 types of landcover that each pixel can convert into, namely: mangroves, degraded mangroves, terrestrial forest, farming, sand/bare soil/urban, and water. Each state will convert to another state based on the probability transition matrix that will be calculated based on landcover classification, frequency of storm, upstream deforestation rate, proximity to human population and restoration project.
 
--------------
+<br>
 
+-------------
 ## Land Cover Classification
 Geeting accurate landcover class for the study area is crucial for this analysis, so I developped a code for landcover classification, which uses Landsat 5, elevation subset, Otsu segmentation, and random forest to produce binary class at each step.
 
 <img align="left" width="474" height="294" src="https://github.com/rajaoberison/LandcoverPrediction/blob/master/images/flow_chart.png">
+
+This land cover classification allowd me to produce a transition matrix of with probabilities of the conversion of each pixels from one state to another. This information is not enaough however, for the predictin analysis, because factors such as storm frequency, anthropogenic pressures, and upstream forest cover are not yet take into account.
+
+## Calculation of 
