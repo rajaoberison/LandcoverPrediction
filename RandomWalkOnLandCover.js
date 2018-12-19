@@ -10,7 +10,7 @@ var scale = 30; // meters
 
 
 /** DEFINING FUNCTIONS **/
-// OTSU FUNCTION
+/*** OTSU FUNCTION ***/
 // https://medium.com/google-earth/otsus-method-for-image-segmentation-f5c48f405e
 var otsu = function(histogram) {
   var counts = ee.Array(ee.Dictionary(histogram).get('histogram'));
@@ -43,7 +43,7 @@ var otsu = function(histogram) {
 };
 
  
-// RANDOM FOREST CLASSIFIER GIVEN TRAINING REGIONS
+/*** RANDOM FOREST CLASSIFIER GIVEN TRAINING REGIONS ***/
 var RFclassifier = function(image, training0, training1, trainingbands, scale){
   //*** IMAGE CLASSIFICATION FUNCTION ***/
   // CLASSIFICATION
@@ -98,10 +98,10 @@ return classified;
 };
 
 
-// LANDSAT 5 IMAGE CLASSIFIER
+/*** LANDSAT 5 IMAGE CLASSIFIER ***/
 var l5classifier = function(year, aoi, training_region, scale){
 
-  // IMAGE PREPARATION
+  /**** IMAGE PREPARATION ****/
   // Get Landsat Images
   // Year is defined as the Tropical cyclone season
   // https://en.wikipedia.org/wiki/2018%E2%80%9319_South-West_Indian_Ocean_cyclone_season
@@ -110,13 +110,11 @@ var l5classifier = function(year, aoi, training_region, scale){
       .filterDate(year_0+'-05-01', year+'-10-31').filterBounds(aoi)
       .filter(ee.Filter.lte('CLOUD_COVER_LAND', 10));
   
-
   Map.centerObject(map_center, 11);
   var visImage = {bands: ['B4', 'B5', 'B1'], min: 140, max: 4300};
   //Map.addLayer(raw, visImage , 'raw '+year, false);
   
-  
-  /* USE THE CLOUD REMOVAL SCRIPT FROM GEE EXAMPLES */
+  /***** USE THE CLOUD REMOVAL SCRIPT FROM GEE EXAMPLES *****/
   // This example demonstrates the use of the Landsat 4, 5 or 7
   // surface reflectance QA band to mask clouds.
   
@@ -140,9 +138,9 @@ var l5classifier = function(year, aoi, training_region, scale){
   
   //Map.addLayer(cloudRemoved, visImage, 'cloud removed '+ year, false);
 
-  
-  /* REMOVING WATER */
+  /***** REMOVING WATER *****/
   // OTSU THRESHOLDING TECHNIQUE
+  // Also water classification: water vs. non-water
   
   // Compute the histogram of the NIR band.  The mean and variance are only FYI.
   var histogram = cloudRemoved.select('B4').reduceRegion({
@@ -166,7 +164,7 @@ var l5classifier = function(year, aoi, training_region, scale){
   var waterMasked = cloudRemoved.mask(waterMask);
   //Map.addLayer(waterMasked, visImage, 'water masked '+year, false);
   
-  // EXTRACTION OF THE STATE SPACE
+  /***** SUBSETTING BY INTERTIDAL / MANGROVE AREAS *****/
   // IMPORT GIRI (2011) AS REFERENCE
   var giri = ee.ImageCollection('LANDSAT/MANGROVE_FORESTS').filterBounds(aoi);
   //Map.addLayer(giri, {color:'grey'}, 'Giri 2000', false);
@@ -188,8 +186,7 @@ var l5classifier = function(year, aoi, training_region, scale){
   
   //Map.addLayer(intertidal, visImage, 'inter '+year, false);
   
-  
-  /* TRAINING DATA */
+  /**** TRAINING DATA ****/
   // Training polygons
   var sand = training_region.filter(ee.Filter.eq('landcover', '0'));
   var mangroves = training_region.filter(ee.Filter.eq('landcover', '1'));
@@ -201,8 +198,8 @@ var l5classifier = function(year, aoi, training_region, scale){
   var notsand = deg_mangroves.merge(forest).merge(agri);
   var terrestrial_veg = forest.merge(agri);
 
-  // IMAGE ANALYSIS
-  /* MAPPING MANGROVES */
+  /**** IMAGE ANALYSIS ****/
+  /***** MAPPING MANGROVES *****/
   var final = intertidal;
   // WATER AND VEGETATION INDEXES
   // NDVI
@@ -272,8 +269,7 @@ var l5classifier = function(year, aoi, training_region, scale){
   var classified_mangrove = classified.updateMask(mangrove_mask);
   //Map.addLayer(classified_mangrove, {palette: 'purple'}, 'mangroves ' + year, false);
 
-
-  /* MAPPING TERRESTRIAL LAND */
+  /***** MAPPING TERRESTRIAL LAND *****/
   var notmangrove_mask = classified.select('class').eq(0);
   var notmangrove_zones = intertidal.updateMask(notmangrove_mask);
   
@@ -326,8 +322,7 @@ var l5classifier = function(year, aoi, training_region, scale){
   
   //Map.addLayer(classified_sand, {palette: 'orange'}, 'sand ' + year, false);
 
-
-  /* MAPPING TERRESTRIAL VEGETATION */
+  /***** MAPPING TERRESTRIAL VEGETATION *****/
   // We don't have multiseries options so we'll use indexes
   // https://medium.com/regen-network/remote-sensing-indices-389153e3d947
   var green_mask = classified_2.select('class').eq(0);
@@ -373,8 +368,7 @@ var l5classifier = function(year, aoi, training_region, scale){
   
   //Map.addLayer(classified_deg, {palette: 'grey'}, 'degmang ' + year, false);
 
-
-  /* MAPPING AGRI vs. FOREST */
+  /***** MAPPING AGRI vs. FOREST *****/
   var green2_mask = classified_3.select('class').eq(0);
   var green2_zones = terr_forest.updateMask(green2_mask);
   
@@ -399,12 +393,12 @@ var l5classifier = function(year, aoi, training_region, scale){
 
   //Map.addLayer(all, {min:0, max:4, palette: ['white', 'red']}, 'all ' + year, true);
 
-/* return value */
 return all.mosaic();
+
 };
 
 
-// TRANSITION MATRIX CALCULATOR
+/*** TRANSITION MATRIX CALCULATOR ***/
 var transition_matrix = function(before_image, current_image, year, aoi, scale){
   
   // Let's remap the pixels into transition states
@@ -445,7 +439,7 @@ var transition_matrix = function(before_image, current_image, year, aoi, scale){
 };
 
 
-// RANDOM WALK FUNCTION
+/*** RANDOM WALK FUNCTION ***/
 // This requires a transition matrix which is calculated above.
 // For each of the pixels, the current state is given by the rows of the average matrix
 // Then, the next state of the land cover is given by the result of product of 
@@ -503,7 +497,7 @@ var random_walk = function(current_cover, bandNameOfClasses, average_matrix){
 
 
 /** MAIN CODE **/
-// LAND COVER CLASSIFICATION GIVEN THE REGION OF STUDY
+/*** LAND COVER CLASSIFICATION GIVEN THE REGION OF STUDY ***/
 // From 2000 to 2008 with a two-year intervall
 var cover_2000 = l5classifier(2000, belo, training, scale);
 var cover_2002 = l5classifier(2002, belo, training, scale);
@@ -520,16 +514,16 @@ Map.addLayer(cover_2006, classesViz, '2006', false);
 Map.addLayer(cover_2008, classesViz, '2008', false);
 
 
-// COMPUTING TRANSITION MATRIX
-var from00to02 = transition_matrix(cover_2000, cover_2002, "2000", belo, 1000);
-var from02to04 = transition_matrix(cover_2002, cover_2004, "2002", belo, 1000);
-var from04to06 = transition_matrix(cover_2004, cover_2006, "2004", belo, 1000);
-var from06to08 = transition_matrix(cover_2006, cover_2008, "2006", belo, 1000);
+/*** COMPUTING TRANSITION MATRIX ***/
+var from00to02 = transition_matrix(cover_2000, cover_2002, "2000", belo, scale);
+var from02to04 = transition_matrix(cover_2002, cover_2004, "2002", belo, scale);
+var from04to06 = transition_matrix(cover_2004, cover_2006, "2004", belo, scale);
+var from06to08 = transition_matrix(cover_2006, cover_2008, "2006", belo, scale);
 
 
-// RANDOM WALK
+/*** RANDOM WALKING ***/
 // First we need the average of the transition matrices
-// AVERAGE TRANSITION MATRIX
+/**** AVERAGE TRANSITION MATRIX ****/
 // Flattening to easily get the average with reducer
 var all_matrix = ee.Array([
   from00to02.toList().flatten(), from02to04.toList().flatten(), 
@@ -547,9 +541,10 @@ average_matrix = ee.Array([
 
 print(average_matrix);
 
-// RANDOM WALK FROM 2008 to 2010
+/**** SIMULATION FROM 2008 to 2010 ****/
 var walk_to_2010 = random_walk(cover_2008, "2008", average_matrix);
 Map.addLayer(walk_to_2010, classesViz, '2010_walk', true);
+var sim = random_walk(cover_2000, "2000", average_matrix);
 
 // FOR THE ACTUAL 2010 cover
 var cover_2010 = l5classifier(2010, belo, training, scale);
