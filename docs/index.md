@@ -96,9 +96,9 @@ var random_walk = function(current_cover, bandNameOfClasses, average_matrix){<==
 
 --------------------
 
-<img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/actual.gif">
-<img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/fromprevious.gif">
-<img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/alltheway.gif">
+<img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/actual.gif"> &nbsp;
+<img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/fromprevious.gif"> &nbsp;
+<img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/alltheway.gif"> &nbsp;
 
 ---------------------------
 
