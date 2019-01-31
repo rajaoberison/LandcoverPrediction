@@ -95,29 +95,26 @@ var random_walk = function(current_cover, bandNameOfClasses, average_matrix){<==
     Here are some typical outputs:
 
 --------------------
+
 <img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/actual.gif">
 <img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/fromprevious.gif">
 <img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/alltheway.gif">
 
-<br>
-<br>
-<br>
-
 ---------------------------
 
-    As we can see, what the script does is: it will assign for all landcovers of type "a" to some new  
-    land cover of type "b". So it will convert everything, all mangroves to some land cover, all 
-    terrestrial forests to some land cover, and so on. While visually, it produces results a little off
-    from the actual land cover, the scrpits still provide insights into when where the mangroves
-    vulnerables within the timeframe of study.
-    
-    If you look closely at the far-right simulation, mangroves are completely lost at the early 2000 
-    but then come back around 2010, I think this is because of the rate of mangrove loss higher 
-    in the early 2000 and slower around 2010. Obviously, a way to correct this sript is to 
-    incorporate some spatial information in the calculation of the probabilities, such as proximity  
-    of the land cover to population centers, proximity to coastline, frequency of storms, and 
-    upstream land cover (all of which may affect mangrove change).
-    The next step of this script will try to incorporate these information.
+`As we can see, what the script does is: it will assign for all landcovers of type "a" to some new  
+land cover of type "b". So it will convert everything, all mangroves to some land cover, all 
+terrestrial forests to some land cover, and so on. While visually, it produces results a little off
+from the actual land cover, the scrpits still provide insights into when where the mangroves
+vulnerables within the timeframe of study.
+
+If you look closely at the far-right simulation, mangroves are completely lost at the early 2000 
+but then come back around 2010, I think this is because of the rate of mangrove loss higher 
+in the early 2000 and slower around 2010. Obviously, a way to correct this sript is to 
+incorporate some spatial information in the calculation of the probabilities, such as proximity  
+of the land cover to population centers, proximity to coastline, frequency of storms, and 
+upstream land cover (all of which may affect mangrove change).
+The next step of this script will try to incorporate these information.`
     
 
 ---------------------
