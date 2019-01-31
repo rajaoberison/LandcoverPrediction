@@ -102,7 +102,9 @@ var random_walk = function(current_cover, bandNameOfClasses, average_matrix){<==
 
 ---------------------------
 
-`As we can see, what the script does is: it will assign for all landcovers of type "a" to some new  
+<br>
+
+As we can see, what the script does is: it will assign for all landcovers of type "a" to some new  
 land cover of type "b". So it will convert everything, all mangroves to some land cover, all 
 terrestrial forests to some land cover, and so on. While visually, it produces results a little off
 from the actual land cover, the scrpits still provide insights into when where the mangroves
@@ -114,7 +116,7 @@ in the early 2000 and slower around 2010. Obviously, a way to correct this sript
 incorporate some spatial information in the calculation of the probabilities, such as proximity  
 of the land cover to population centers, proximity to coastline, frequency of storms, and 
 upstream land cover (all of which may affect mangrove change).
-The next step of this script will try to incorporate these information.`
+The next step of this script will try to incorporate these information.
     
 
 ---------------------
