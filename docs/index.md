@@ -97,9 +97,9 @@ Here are some typical outputs:
 
 --------------------
 
-<img align="left" width="33%" src="https://rajaoberison.github.io/images/landcoverpred/actual.gif">
-<img align="left" width="33%" src="https://rajaoberison.github.io/images/landcoverpred/fromprevious.gif">
-<img align="left" width="33%" src="https://rajaoberison.github.io/images/landcoverpred/alltheway.gif">
+<img align="left" width="30%" src="https://rajaoberison.github.io/images/landcoverpred/actual.gif">
+<img align="left" width="30%" src="https://rajaoberison.github.io/images/landcoverpred/fromprevious.gif">
+<img align="left" width="30%" src="https://rajaoberison.github.io/images/landcoverpred/alltheway.gif">
 
 ---------------------------
 
