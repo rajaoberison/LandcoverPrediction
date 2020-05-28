@@ -27,12 +27,12 @@ This land cover classification allowd me to produce a transition matrix of with 
 ---------------------
 ## Examples simulation
 
-    But first let's simulate a simple random walk using the classes and the transition matrix obtained from the 
-    classification. By choosing a study region in Belo-sur-Tsiribihina, Madagascar, and a timeframe of 2000 to 
-    2010 (with a two-year intervall), I obtained the following outputs. For this example, water was not yet 
-    included but just the land covers.
-    
-    In short, the script looks like this:
+But first let's simulate a simple random walk using the classes and the transition matrix obtained from the 
+classification. By choosing a study region in Belo-sur-Tsiribihina, Madagascar, and a timeframe of 2000 to 
+2010 (with a two-year intervall), I obtained the following outputs. For this example, water was not yet 
+included but just the land covers.
+
+In short, the script looks like this:
     
 ```javascript
 // Attempted Land Cover Change Prediction by Andry Rajaoberison
