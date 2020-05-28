@@ -7,7 +7,7 @@ Mangroves are trees and shrubs that inhabit the interface between land and sea o
 
 Based on the assumption that only mangroves can tolerate intertidal areas, my method will assume that there are 6 types of landcover that each pixel can convert into, namely: mangroves, degraded mangroves, terrestrial forest, farming, sand/bare soil/urban, and water. Each state will convert to another state based on the probability transition matrix that will be calculated based on landcover classification, frequency of storm, upstream deforestation rate, proximity to human population and restoration project.
 
-<br>
+<br/>
 
 -------------
 # Land Cover Classification
@@ -96,7 +96,7 @@ Here are some typical outputs:
 <img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/fromprevious.gif">
 <img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/alltheway.gif">
 
-<br/>As we can see, what the script does is: it will assign for all landcovers of type "a" to some new  
+As we can see, what the script does is: it will assign for all landcovers of type "a" to some new  
 land cover of type "b". So it will convert everything, all mangroves to some land cover, all 
 terrestrial forests to some land cover, and so on. While visually, it produces results a little off
 from the actual land cover, the scrpits still provide insights into when where the mangroves
