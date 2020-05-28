@@ -126,5 +126,3 @@ For the next steps, the updating of the landcover class (the random walk) will g
 This is something, I still find challenging to implement on Earth Engine as I haven't mastered some of its capabilities yet.
 
 Please contact me if you're interested in collaborating on this project.
-
-The full script can be found here: https://github.com/rajaoberison/LandcoverPrediction/blob/master/RandomWalkOnLandCover.js
