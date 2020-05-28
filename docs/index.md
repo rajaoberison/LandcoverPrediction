@@ -1,8 +1,4 @@
-# Prediction of land cover change using random walk in Google Earth Engine
-
-This is still a work in progress. I stated working on this as part of the Geospatial Software Design class at Yale FES.
-
-## Introduction
+# Introduction
 In this project, I'm trying to predict landcover change using simple random walk within landcover pixels. The software used was Earth Engine, and one of the main challenge was to incorporate pixel location information in the script. (And I'm still working on that part actually). This script example is specifically designed for mangrove cover change.
 
 Mangroves are trees and shrubs that inhabit the interface between land and sea of the tropics and subtropics. Their natural distribution is limited, globally, by temperature (20°C winter isotherm of seawater), and, regionally and locally, by rainfall, tidal inundation, and freshwater inflow bringing nutrients and silt ([Kathiresan and Bingham, 2001](https://www.sciencedirect.com/science/article/pii/S0065288101400034); [Alongi and Brinkman, 2011](https://link.springer.com/chapter/10.1007/978-94-007-1363-5_10)). Additionally, mangroves are abundant in zones of small topographical gradients, well-drained soils, and large tidal amplitudes; but they do poorly in stagnant water ([Gopal and Krishnamurthy, 1993](https://link.springer.com/chapter/10.1007/978-94-015-8212-4_10); [Van Loon et al., 2016](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0150302)).
@@ -14,7 +10,7 @@ Based on the assumption that only mangroves can tolerate intertidal areas, my me
 <br>
 
 -------------
-## Land Cover Classification
+# Land Cover Classification
 Getting accurate landcover class for the study area is crucial for this analysis, so I developped a code for landcover classification, which uses Landsat 5, elevation subset, Otsu segmentation, and random forest to produce binary class at each step.
 
 <img align="left" width="501" height="262" src="https://rajaoberison.github.io/images/landcoverpred/flow_chart.png">
@@ -25,7 +21,7 @@ This land cover classification allowd me to produce a transition matrix of with 
 <br>
 
 ---------------------
-## Examples simulation
+# Examples simulation
 
 But first let's simulate a simple random walk using the classes and the transition matrix obtained from the 
 classification. By choosing a study region in Belo-sur-Tsiribihina, Madagascar, and a timeframe of 2000 to 
@@ -103,7 +99,7 @@ Here are some typical outputs:
 
 ---------------------------
 
-<br>
+<br/>
 
 As we can see, what the script does is: it will assign for all landcovers of type "a" to some new  
 land cover of type "b". So it will convert everything, all mangroves to some land cover, all 
@@ -121,7 +117,7 @@ The next step of this script will try to incorporate these information.
     
 
 ---------------------
-## Calculation of Posterior Probabilities
+# Calculation of Posterior Probabilities
 For the next steps, the updating of the landcover class (the random walk) will go by pixels and not by land cover type.
 This is something, I still find challenging to implement on Earth Engine as I haven't mastered some of its capabilities yet.
 
