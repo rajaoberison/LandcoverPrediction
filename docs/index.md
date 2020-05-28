@@ -96,9 +96,7 @@ Here are some typical outputs:
 <img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/fromprevious.gif">
 <img align="left" width="31%" src="https://rajaoberison.github.io/images/landcoverpred/alltheway.gif">
 
-<br/>
-
-As we can see, what the script does is: it will assign for all landcovers of type "a" to some new  
+<br/>As we can see, what the script does is: it will assign for all landcovers of type "a" to some new  
 land cover of type "b". So it will convert everything, all mangroves to some land cover, all 
 terrestrial forests to some land cover, and so on. While visually, it produces results a little off
 from the actual land cover, the scrpits still provide insights into when where the mangroves
