@@ -90,15 +90,17 @@ var random_walk = function(current_cover, bandNameOfClasses, average_matrix){<==
 
 Here are some typical outputs:
 
+<br/>
+
 --------------------
 
 <img align="left" width="30%" src="https://rajaoberison.github.io/images/landcoverpred/actual.gif">
 <img align="left" width="30%" src="https://rajaoberison.github.io/images/landcoverpred/fromprevious.gif">
 <img align="left" width="30%" src="https://rajaoberison.github.io/images/landcoverpred/alltheway.gif">
 
----------------------------
+---------------------
 
-<br/><br/>
+<br/>
 
 As we can see, what the script does is: it will assign for all landcovers of type "a" to some new  
 land cover of type "b". So it will convert everything, all mangroves to some land cover, all 
