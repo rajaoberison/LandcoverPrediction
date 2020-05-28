@@ -92,7 +92,8 @@ var random_walk = function(current_cover, bandNameOfClasses, average_matrix){<==
 
 /** PRESENTATION **/<==>
 ```
-    Here are some typical outputs:
+
+Here are some typical outputs:
 
 --------------------
 
