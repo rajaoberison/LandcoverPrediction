@@ -17,8 +17,7 @@ Getting accurate landcover class for the study area is crucial for this analysis
 
 This land cover classification allowd me to produce a transition matrix of with probabilities of the conversion of each pixels from one state to another. This information is not enaough however, for the prediction analysis, because factors such as storm frequency, anthropogenic pressures, and upstream forest cover are not yet take into account. I will try to calculate this proability using Baysian inference.
 
-<br>
-<br>
+<br/><br/>
 
 ---------------------
 # Examples simulation
@@ -99,7 +98,7 @@ Here are some typical outputs:
 
 ---------------------------
 
-\
+<br/><br/>
 
 As we can see, what the script does is: it will assign for all landcovers of type "a" to some new  
 land cover of type "b". So it will convert everything, all mangroves to some land cover, all 
