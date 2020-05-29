@@ -1,6 +1,6 @@
-<a href="https://github.com/rajaoberison/LandcoverPrediction/blob/master/RandomWalkOnLandCover.js" target="blank_">
-View on <img align="center" width="100%" height="20px" src="https://rajaoberison.github.io/images/GitHub_Logo.png">
+<a href="https://github.com/rajaoberison/LandcoverPrediction/blob/master/RandomWalkOnLandCover.js" target="blank_">View on <img align="center" width="100%" height="20px" src="https://rajaoberison.github.io/images/GitHub_Logo.png">
 </a>
+
 # Introduction
 In this project, I'm trying to predict landcover change using simple random walk within landcover pixels. The software used was Earth Engine, and one of the main challenge was to incorporate pixel location information in the script. (And I'm still working on that part actually). This script example is specifically designed for mangrove cover change.
 
