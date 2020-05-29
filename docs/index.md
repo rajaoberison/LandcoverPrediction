@@ -1,4 +1,4 @@
-<a class="view-github" href="https://github.com/rajaoberison/LandcoverPrediction/blob/master/RandomWalkOnLandCover.js" target="blank_">View on <img align="center" width="100%" height="20px" src="https://rajaoberison.github.io/images/GitHub_Logo.png">
+<a class="view-github" href="https://github.com/rajaoberison/LandcoverPrediction/blob/master/RandomWalkOnLandCover.js" target="blank_">View on <img align="center" height="20px" src="https://rajaoberison.github.io/images/GitHub_Logo.png">
 </a>
 
 # Introduction
